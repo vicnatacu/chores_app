@@ -1,9 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const port = 3000;
 const mongoose = require('mongoose');
-
+const port = 3000;
 const app = express();
 
 const dbConn = 'mongodb://localhost/chores';
@@ -27,6 +26,8 @@ mongoose.connect(dbConn, {
 app.use(cors())
 app.use(bodyParser.json())
 
+//
+​
 app.listen(port, () => {
     console.log(`Chores app listening on port ${port}`);
 })
