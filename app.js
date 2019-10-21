@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = 3000;
 const mongoose = require('mongoose');
+const choreRouter = require('./routes/chores_routes');
 
 const app = express();
 
@@ -26,7 +27,7 @@ mongoose.connect(dbConn, {
 //Middleware
 app.use(cors())
 app.use(bodyParser.json())
-
+app.use('/chores', choreRouter)
 app.listen(port, () => {
     console.log(`Chores app listening on port ${port}`);
 })
