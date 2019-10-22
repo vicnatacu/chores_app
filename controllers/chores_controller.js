@@ -1,5 +1,6 @@
 const {
-    addChore
+    addChore,
+    getAllChores
 } = require('../utils/chore_utilities');
 
 const verifyOwner = function (req, res, next) {
@@ -90,13 +91,26 @@ const userAuthenticated = function(req, res, next) {
     }
 }
 
+const getChore = function (req, res) {
+    getAllChores(req).
+    exec((err, chores) => {
+        if (err) {
+            res.status(500);
+            res.json({
+                error: err.message
+            });
+        }
+        res.send(chores);
+    });
+};
+
 module.exports = {
     verifyOwner,
     makeChore,
     removeChore,
     changeChore,
-    userAuthenticated
-
+    userAuthenticated,
+    getChore
 }
 
 
