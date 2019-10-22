@@ -14,6 +14,11 @@ const Chore = new Schema({
         type: String,
         required: true
     },
+    assigned_to: {
+        type: String,
+        required: true,
+        
+    },
     completed: {
         type: Boolean,
         default: false
