@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const mongoose = require('mongoose');
 const choreRouter = require('./routes/chores_routes');
-const authRouter = reqire('./routes/auth_routes');
-
+const authRouter = require('./routes/auth_routes');
+const passport = require('passport');
 
 const app = express();
 

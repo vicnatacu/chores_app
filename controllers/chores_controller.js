@@ -11,14 +11,14 @@ const verifyOwner = function (req, res, next) {
             if (err) {
                 req.error = {
                     message: 'Chore not found',
-                    status: 404;
+                    status: 404
                 }
                 next();
             }
             if (req.user.username !== chore.username) {
                 req.error = {
                     message: 'You do not have the permission to modify this post',
-                    status: 403;
+                    status: 403
                 }
             }
             next();
