@@ -3,7 +3,8 @@ const router = express.Router();
 
 const {
     makeChore,
-    userAuthenticated
+    userAuthenticated,
+    removeChore
 } = require('../controllers/chores_controller');
 
 
@@ -15,7 +16,7 @@ router.post("/", userAuthenticated, makeChore);
 // DELETE
 // DELETE on '/posts/:id'
 // Deletes a post with id
-// router.delete("/:id", userAuthenticated, removeChore);
+router.delete("/:id", userAuthenticated, removeChore);
 
 // UPDATE
 // PUT on 'posts/:id'
