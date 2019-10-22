@@ -3,10 +3,23 @@ const router = express.Router();
 
 const {
     makeChore,
-} = require('../controller/chores_controller');
+    userAuthenticated
+} = require('../controllers/chores_controller');
 
-//Create
-// '/chores'
-router.post('/', makeChore)
+
+// CREATE
+// POST on '/posts'
+// Creates a new post
+router.post("/", userAuthenticated, makeChore);
+
+// DELETE
+// DELETE on '/posts/:id'
+// Deletes a post with id
+// router.delete("/:id", userAuthenticated, removeChore);
+
+// UPDATE
+// PUT on 'posts/:id'
+// Updates a post with id
+// router.put("/:id", userAuthenticated, changeChore);
 
 module.exports = router;
