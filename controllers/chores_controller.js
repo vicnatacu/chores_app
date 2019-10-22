@@ -62,14 +62,13 @@ const removeChore = function (req, res) {
     }
 };
 
-const changePost = function (req, res) {
+const changeChore = function (req, res) {
     // Check for error from middleware
     if (req.error) {
         res.status(req.error.status);
         res.send(req.error.message);
     } else {
-        // execute the query from updatePost
-        updatePost(req).exec((err, post) => {
+        updateChore(req).exec((err, post) => {
             if (err) {
                 res.status(500);
                 res.json({
@@ -77,10 +76,11 @@ const changePost = function (req, res) {
                 });
             }
             res.status(200);
-            res.send(post);
+            res.send(chore);
         });
     }
-};
+}
+
 
 const userAuthenticated = function(req, res, next) {
     if (req.isAuthenticated()) {
@@ -93,7 +93,9 @@ const userAuthenticated = function(req, res, next) {
 module.exports = {
     verifyOwner,
     makeChore,
-    userAuthenticated,
+    removeChore,
+    changeChore,
+    userAuthenticated
 
 }
 
