@@ -94,8 +94,8 @@ module.exports = {
     verifyOwner,
     makeChore,
     removeChore,
-    changeChore
-    userAuthenticated,
+    changeChore,
+    userAuthenticated
 
 }
 
