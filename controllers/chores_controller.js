@@ -1,5 +1,5 @@
 const {
-    addChore, deleteChore, getAllChores
+    addChore, deleteChore, getAllChores, updateChore, getChoreById
 } = require('../utils/chore_utilities');
 
 const verifyOwner = function (req, res, next) {
@@ -7,7 +7,7 @@ const verifyOwner = function (req, res, next) {
     if (req.user.role == 'admin') {
         next();
     } else {
-        getPostById(req).exec((err, chore) => {
+        getChoreById(req).exec((err, chore) => {
             if (err) {
                 req.error = {
                     message: 'Chore not found',
@@ -68,7 +68,7 @@ const changeChore = function (req, res) {
         res.status(req.error.status);
         res.send(req.error.message);
     } else {
-        updateChore(req).exec((err, post) => {
+        updateChore(req).exec((err, chore) => {
             if (err) {
                 res.status(500);
                 res.json({

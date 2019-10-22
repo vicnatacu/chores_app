@@ -18,11 +18,11 @@ const {
 // GET on '/chore'
 // Gets a Chore
 router.get("/", getChore)
-
+router.use(userAuthenticated)
 // CREATE
 // POST on '/posts'
 // Creates a new post
-router.post("/", userAuthenticated, makeChore);
+router.post("/", makeChore);
 
 // DELETE
 // DELETE on '/posts/:id'

@@ -11,6 +11,9 @@ const passport = require('passport');
 const app = express();
 const MongoStore = require("connect-mongo")(session)
 
+//Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
 const dbConn = 'mongodb://localhost/chores';
 // Set four properties to avoid deprecation warnings:
@@ -47,9 +50,7 @@ require('./config/passport');
 app.use(passport.initialize());
 app.use (passport.session());
 
-//Middleware
-app.use(cors());
-app.use(bodyParser.json());
+
 
 
 app.use('/chores', choreRouter);
