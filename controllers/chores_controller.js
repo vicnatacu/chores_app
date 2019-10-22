@@ -1,5 +1,5 @@
 const {
-    addChore
+    addChore, deleteChore
 } = require('../utils/chore_utilities');
 
 const verifyOwner = function (req, res, next) {
@@ -83,10 +83,13 @@ const changeChore = function (req, res) {
 
 
 const userAuthenticated = function(req, res, next) {
+    console.log("user1 "+req.user)
     if (req.isAuthenticated()) {
         next();
     } else {
-        res.sendStatus(403);
+        res.sendStatus(403)
+        console.log("user authenticated is problem")
+
     }
 }
 

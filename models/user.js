@@ -6,10 +6,13 @@ const User = new Schema({
     email: {
         type: String,
         required: true,
+    },
+    role: {
+        type: String
     }
 });
 
 // plugin the passort-local-mongoose middleware with our User schema
 User.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("Users", User)
+module.exports = mongoose.model("User", User)
