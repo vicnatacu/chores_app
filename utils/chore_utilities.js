@@ -6,9 +6,14 @@ const addChore = function (req) {
 
 const getAllChores = function (req){
     return Chore.find();
+}
+
+const deleteChore = function (id) {
+    return Chore.findByIdAndRemove(id);
 };
 
 module.exports = {
     addChore,
-    getAllChores
+    getAllChores,
+    deleteChore
 }

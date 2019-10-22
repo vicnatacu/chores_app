@@ -4,7 +4,7 @@ const router = express.Router();
 const {
     makeChore,
     removeChore,
-    updateChore,
+    changeChore,
     verifyOwner,
     userAuthenticated,
     getChore
@@ -12,7 +12,7 @@ const {
 
 
 // For post, delete, put -require authenticated user
-router.use(userAuthenticated);
+// router.use(userAuthenticated);
 
 // GET
 // GET on '/chore'
@@ -27,11 +27,11 @@ router.post("/", userAuthenticated, makeChore);
 // DELETE
 // DELETE on '/posts/:id'
 // Deletes a post with id
-// router.delete("/:id", verifyOwner, removeChore);
+router.delete("/:id", verifyOwner, removeChore);
 
 // UPDATE
 // PUT on 'posts/:id'
 // Updates a post with id
-// router.put("/:id", verifyOwner, changeChore);
+router.put("/:id", verifyOwner, changeChore);
 
 module.exports = router;
