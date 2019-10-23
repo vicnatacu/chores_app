@@ -5,6 +5,7 @@ const addChore = function (req) {
 };
 
 const getAllChores = function (req){
+    console.log('chore:'+Chore)
     return Chore.find();
 }
 
