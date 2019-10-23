@@ -5,7 +5,8 @@ const authenicate = passport.authenticate('local');
 const register = function (req, res) {
     User.register(new User({
         username: req.body.username,
-        email: req.body.email
+        email: req.body.email,
+        role: req.body.role || 'user'
     }), req.body.password, function (err) {
         if (err) {
             res.status(500);

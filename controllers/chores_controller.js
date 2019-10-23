@@ -4,7 +4,9 @@ const {
 
 const verifyOwner = function (req, res, next) {
     // If chore owner isn't currently logged in user, send forbidden 
+    console.log('Verify Owner!! '+req.user)
     if (req.user.role == 'admin') {
+        console.log('Happy')
         next();
     } else {
         getChoreById(req).exec((err, chore) => {
@@ -15,6 +17,8 @@ const verifyOwner = function (req, res, next) {
                 }
                 next();
             }
+            console.log('user: '+req.user.username);
+            console.log('chore: '+chore)
             if (req.user.username !== chore.username) {
                 req.error = {
                     message: 'You do not have the permission to modify this post',
@@ -83,7 +87,7 @@ const changeChore = function (req, res) {
 
 
 const userAuthenticated = function(req, res, next) {
-    console.log("user1 "+req.user)
+    console.log("user! "+req.user)
     if (req.isAuthenticated()) {
         next();
     } else {

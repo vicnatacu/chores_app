@@ -5,7 +5,8 @@ const deleteUser = function (req) {
 const updateUser = function (req) {
     return User.findByIdAndUpdate(req.params.id, req.body);
 }
+
 module.exports = {
     deleteUser,
     updateUser
-};
+}
