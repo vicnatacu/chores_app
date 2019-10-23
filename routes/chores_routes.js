@@ -7,7 +7,8 @@ const {
     changeChore,
     verifyOwner,
     userAuthenticated,
-    getChore
+    getChore,
+    getSingleChore
 } = require('../controllers/chores_controller');
 
 
@@ -18,6 +19,7 @@ const {
 // GET on '/chore'
 // Gets a Chore
 router.get("/", getChore)
+router.get("/:id", getSingleChore)
 router.use(userAuthenticated)
 // CREATE
 // POST on '/posts'

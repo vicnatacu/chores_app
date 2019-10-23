@@ -109,6 +109,18 @@ const getChore = function (req, res) {
         res.send(chores);
     });
 };
+const getSingleChore = function (req, res) {
+    // execute the query from getPostById
+    getChoreById(req).exec((err, post) => {
+        if (err) {
+            res.status(404);
+            res.send("Chore not found");
+        }
+        res.send(post);
+    });
+};
+
+
 
 module.exports = {
     verifyOwner,
@@ -116,7 +128,8 @@ module.exports = {
     removeChore,
     changeChore,
     userAuthenticated,
-    getChore
+    getChore,
+    getSingleChore
 }
 
 
